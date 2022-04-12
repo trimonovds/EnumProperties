@@ -9,7 +9,14 @@ let package = Package(
     // Products define the executables and libraries a package produces, and make them visible to other packages.
     .library(
       name: "EnumProperties",
-      targets: ["EnumProperties"]),
+      targets: ["EnumProperties"]
+    ),
+    .executable(
+      name: "generate-enum-properties", 
+      targets: [
+        "generate-enum-properties"
+      ]
+    )
   ],
   dependencies: [
     // Dependencies declare other packages that this package depends on.
@@ -30,6 +37,13 @@ let package = Package(
     .target(
       name: "EnumProperties",
       dependencies: ["SwiftSyntax"]
+    ),
+    .executableTarget(
+      name: "generate-enum-properties",
+      dependencies: [
+        "EnumProperties", 
+        "SwiftSyntax"
+      ]
     ),
     .testTarget(
       name: "EnumPropertiesTests",

@@ -9,10 +9,30 @@
             "request": "launch",
             "name": "Tests",
             "program": "/Applications/Xcode.app/Contents/Developer/usr/bin/xctest",
-            "args": [".build/debug/EnumPropertiesPackageTests.xctest"],
+            "args": [
+                ".build/debug/EnumPropertiesPackageTests.xctest"
+            ],
             "cwd": "${workspaceFolder:EnumProperties}",
             "preLaunchTask": "swift: Build All"
-          }
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug generate-enum-properties",
+            "program": "${workspaceFolder:EnumProperties}/.build/debug/generate-enum-properties",
+            "args": [],
+            "cwd": "${workspaceFolder:EnumProperties}",
+            "preLaunchTask": "swift: Build Debug generate-enum-properties"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Release generate-enum-properties",
+            "program": "${workspaceFolder:EnumProperties}/.build/release/generate-enum-properties",
+            "args": [],
+            "cwd": "${workspaceFolder:EnumProperties}",
+            "preLaunchTask": "swift: Build Release generate-enum-properties"
+        }
     ]
     
 }
